@@ -13,7 +13,9 @@ class UrlProvider extends ChangeNotifier {
     urlModel.searchController.clear();
     urlModel.inAppWebViewController?.loadUrl(
       urlRequest: URLRequest(
-        url: Uri.parse(urlModel.url),
+        url: WebUri.uri(
+          Uri.parse(urlModel.url),
+        ),
       ),
     );
     notifyListeners();
@@ -22,7 +24,9 @@ class UrlProvider extends ChangeNotifier {
   goHome() {
     urlModel.inAppWebViewController?.loadUrl(
       urlRequest: URLRequest(
-        url: Uri.parse(urlModel.url),
+        url: WebUri.uri(
+          Uri.parse(urlModel.url),
+        ),
       ),
     );
     notifyListeners();
@@ -44,7 +48,9 @@ class UrlProvider extends ChangeNotifier {
   loadUrl(int index) {
     urlModel.inAppWebViewController?.loadUrl(
       urlRequest: URLRequest(
-        url: Uri.parse(urlModel.bookmarkPageUrl[index]),
+        url: WebUri.uri(
+          Uri.parse(urlModel.bookmarkPageUrl[index]),
+        ),
       ),
     );
     notifyListeners();
@@ -53,8 +59,10 @@ class UrlProvider extends ChangeNotifier {
   search() {
     urlModel.inAppWebViewController?.loadUrl(
       urlRequest: URLRequest(
-        url: Uri.parse(
-            "${urlModel.url}search?q=${urlModel.searchController.text}"),
+        url: WebUri.uri(
+          Uri.parse(
+              "${urlModel.url}search?q=${urlModel.searchController.text}"),
+        ),
       ),
     );
     notifyListeners();

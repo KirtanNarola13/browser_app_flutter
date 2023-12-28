@@ -288,8 +288,10 @@ class _HomePageState extends State<HomePage> {
                             ?.endRefreshing();
                       },
                       initialUrlRequest: URLRequest(
-                        url: Uri.parse(
-                            Provider.of<UrlProvider>(context).urlModel.url),
+                        url: WebUri.uri(
+                          Uri.parse(
+                              Provider.of<UrlProvider>(context).urlModel.url),
+                        ),
                       ),
                     ),
                   ),
